@@ -1,11 +1,12 @@
 import React from 'react'
 import 'antd/dist/reset.css'
+import './style.less'
 
 const App=() =>{
 return (
-<div>
-   
-</div>
+    <div className='OB'> 
+     APP
+    </div>
 )
 }
 
