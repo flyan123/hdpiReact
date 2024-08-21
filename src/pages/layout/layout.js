@@ -1,11 +1,9 @@
 import React from 'react'
 
-function login() {
+export default function layout() {
   return (
     <div>
-      <h1>登录</h1>
+      layout
     </div>
   )
 }
-
-export default login
