@@ -5,17 +5,10 @@ export default function login() {
   return (
     <div className="login">
       <div className="content">
-        <Form
-          name="basic"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
+        <Form name="basic"
+          labelCol={{  span: 8,  }}
+          wrapperCol={{  span: 16, }}
+          style={{ maxWidth: 600,  }}
           initialValues={{
             remember: true,
           }}
