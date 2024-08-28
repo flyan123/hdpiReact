@@ -7,7 +7,11 @@
     align-items: center;
     .content {
         width: 500px;
-        height: 200px;
+        // height: 200px;
+        padding-top: 20px;
         border: 1px solid #000;
+        h2{
+        text-align: center;
+        }
     }
 }
