@@ -1,17 +1,19 @@
 .login {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(109, 110, 110);
+    // background-color: rgb(109, 110, 110);
     display: flex;
     justify-content: center;
     align-items: center;
     .content {
+        background-color: rgb(229, 229, 229);
+        padding: 50px;
         width: 500px;
         // height: 200px;
-        padding-top: 20px;
         border: 1px solid #000;
         h2{
-        text-align: center;
+            text-align: center;
+            padding-bottom: 25px;
         }
     }
 }

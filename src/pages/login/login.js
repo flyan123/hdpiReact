@@ -23,12 +23,12 @@ export default function login() {
           autoComplete="off"
         >
           <Form.Item
-            label="账号"
+            label="用户名"
             name="username"
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "请输入用户名!",
               },
             ]}
           >
@@ -40,7 +40,7 @@ export default function login() {
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: "请输入密码!",
               },
             ]}
           >
