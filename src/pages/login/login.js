@@ -55,7 +55,7 @@ export default function login() {
             <Button type="primary" htmlType="submit">
               登录
             </Button>
-            <Button style={{marginLeft:'20px'}}>取消</Button>
+            <Button style={{ marginLeft: "20px" }}>取消</Button>
           </Form.Item>
         </Form>
       </div>
