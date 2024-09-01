@@ -2,33 +2,34 @@ import React from "react";
 import "./Login.scss";
 import { Button, Form, Input } from "antd";
 export default function login() {
+  // 表单成功提交方法
   const onFinish = (values) => {
     console.log("Success:", values);
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  const [form] = Form.useForm();
   return (
     <div className="login">
       <div className="content">
         <h2>管理系统</h2>
         <Form
           name="basic"
+          form={form}
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 18 }}
-          style={{ maxWidth: 600 }}
-          initialValues={{ remember: true }}
+          initialValues={{
+            loginId: "",
+            loginPwd: "",
+          }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
-            label="用户名"
-            name="username"
+            label="账号"
+            name="loginId"
             rules={[
               {
                 required: true,
-                message: "请输入用户名!",
+                message: "请输入账号!",
               },
             ]}
           >
@@ -36,7 +37,7 @@ export default function login() {
           </Form.Item>
           <Form.Item
             label="密码"
-            name="password"
+            name="loginPwd"
             rules={[
               {
                 required: true,
@@ -52,8 +53,13 @@ export default function login() {
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit">登录</Button>
-            <Button style={{ marginLeft: "20px" }}>取消</Button>
+            <Button type="primary" htmlType="submit">
+              登录
+            </Button>
+            <Button onClick={
+              //  resetFields:重置一组字段到 initialValues
+              ()=>{form.resetFields()}
+            } style={{ marginLeft: "20px" }}>取消</Button>
           </Form.Item>
         </Form>
       </div>
