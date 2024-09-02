@@ -1,9 +1,11 @@
 import React from "react";
 import "./Login.scss";
 import { Button, Form, Input } from "antd";
+import {$login} from '../../api/index.js'
 export default function login() {
   // 表单成功提交方法
   const onFinish = (values) => {
+    $login(values)
     console.log("Success:", values);
   };
   const [form] = Form.useForm();
