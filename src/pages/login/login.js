@@ -1,11 +1,23 @@
 import React from "react";
 import "./Login.scss";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input ,notification} from "antd";
 import {$login} from '../../api/index.js'
 export default function login() {
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (type,description) => {
+    api[type]({
+      message: '系统提示',
+      description
+    });
+  };
   // 表单成功提交方法
-  const onFinish = (values) => {
-    $login(values)
+  const onFinish = async(values) => {
+    let {message,success} =await $login(values)
+    if(success){
+      openNotification('success',message)
+    }else{
+      openNotification('error',message)
+    }
     console.log("Success:", values);
   };
   const [form] = Form.useForm();
@@ -65,6 +77,7 @@ export default function login() {
           </Form.Item>
         </Form>
       </div>
+      {contextHolder}
     </div>
   );
 }
