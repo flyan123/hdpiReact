@@ -1,22 +1,22 @@
 import React from "react";
 import "./Login.scss";
-import { Button, Form, Input ,notification} from "antd";
-import {$login} from '../../api/index.js'
+import { Button, Form, Input, notification } from "antd";
+import { $login } from "../../api/index.js";
 export default function login() {
   const [api, contextHolder] = notification.useNotification();
-  const openNotification = (type,description) => {
+  const openNotification = (type, description) => {
     api[type]({
-      message: '系统提示',
-      description
+      message: "系统提示",
+      description,
     });
   };
   // 表单成功提交方法
-  const onFinish = async(values) => {
-    let {message,success} =await $login(values)
-    if(success){
-      openNotification('success',message)
-    }else{
-      openNotification('error',message)
+  const onFinish = async (values) => {
+    let { message, success } = await $login(values);
+    if (success) {
+      openNotification("success", message);
+    } else {
+      openNotification("error", message);
     }
     console.log("Success:", values);
   };
@@ -70,10 +70,17 @@ export default function login() {
             <Button type="primary" htmlType="submit">
               登录
             </Button>
-            <Button onClick={
-              //  resetFields:重置一组字段到 initialValues
-              ()=>{form.resetFields()}
-            } style={{ marginLeft: "20px" }}>取消</Button>
+            <Button
+              onClick={
+                //  resetFields:重置一组字段到 initialValues
+                () => {
+                  form.resetFields();
+                }
+              }
+              style={{ marginLeft: "20px" }}
+            >
+              取消
+            </Button>
           </Form.Item>
         </Form>
       </div>
