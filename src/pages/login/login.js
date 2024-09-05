@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
-import { Button, Form, Input, notification } from "antd";
+import { Button, Form, Input } from "antd";
+import MyNotification from "../../components/mynotification.js";
 import { $login } from "../../api/index.js";
 export default function login() {
-  const [api, contextHolder] = notification.useNotification();
-  const openNotification = (type, description) => {
-    api[type]({
-      message: "系统提示",
-      description,
-    });
-  };
+  // 通知框状态
+  let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
+  // 提示框
+  // const [api, contextHolder] = notification.useNotification();
+  // const openNotification = (type, description) => {
+  //   api[type]({
+  //     message: "系统提示",
+  //     description,
+  //   });
+  // };
+  // 表单
+  let [form] = Form.useForm();
   // 表单成功提交方法
   const onFinish = async (values) => {
     let { message, success } = await $login(values);
     if (success) {
-      openNotification("success", message);
+      // openNotification("success", message);
+      setNotiMsy({ type: "success", description: message });
     } else {
-      openNotification("error", message);
+      // openNotification("error", message);
+      setNotiMsy({ type: "error", description: message });
     }
-    console.log("Success:", values);
   };
-  const [form] = Form.useForm();
   return (
     <div className="login">
       <div className="content">
@@ -84,7 +90,8 @@ export default function login() {
           </Form.Item>
         </Form>
       </div>
-      {contextHolder}
+      {/* {contextHolder} */}
+      <MyNotification notiMsy={notiMsy}/>
     </div>
   );
 }
