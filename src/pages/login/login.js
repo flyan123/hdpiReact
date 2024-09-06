@@ -91,7 +91,7 @@ export default function login() {
         </Form>
       </div>
       {/* {contextHolder} */}
-      <MyNotification notiMsy={notiMsy}/>
+      <MyNotification notiMsy={notiMsy} />
     </div>
   );
 }
