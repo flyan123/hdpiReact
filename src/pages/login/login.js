@@ -6,14 +6,7 @@ import { $login } from "../../api/index.js";
 export default function login() {
   // 通知框状态
   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
-  // 提示框
-  // const [api, contextHolder] = notification.useNotification();
-  // const openNotification = (type, description) => {
-  //   api[type]({
-  //     message: "系统提示",
-  //     description,
-  //   });
-  // };
+  
   // 表单
   let [form] = Form.useForm();
   // 表单成功提交方法
