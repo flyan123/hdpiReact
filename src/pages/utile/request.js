@@ -9,6 +9,9 @@ var instance = axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(
   function (config) {
+    if (sessionStorage.getItem("token")) {
+      config.headers.token = sessionStorage.getItem("token");
+    }
     // 在发送请求之前做些什么
     return config;
   },
@@ -30,4 +33,4 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance
+export default instance;
