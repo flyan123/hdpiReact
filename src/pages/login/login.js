@@ -1,22 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 import { Button, Form, Input } from "antd";
 import MyNotification from "../../components/mynotification.js";
 import { $login } from "../../api/index.js";
 export default function login() {
+  // 导航
+  let navigate = useNavigate()
   // 通知框状态
   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
-  
   // 表单
   let [form] = Form.useForm();
   // 表单成功提交方法
   const onFinish = async (values) => {
+    return  navigate('/layout')
     let { message, success } = await $login(values);
+    // 判断是否登录成功
     if (success) {
-      // openNotification("success", message);
       setNotiMsy({ type: "success", description: message });
+      // 跳转到首页
+      navigate('/layout')
     } else {
-      // openNotification("error", message);
       setNotiMsy({ type: "error", description: message });
     }
   };
