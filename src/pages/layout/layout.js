@@ -11,10 +11,9 @@ import "./layout.scss";
 
 const { Header, Sider, Content } = Layout;
 const layout = () => {
+  // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  
   return (
     <Layout className="layout">
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -27,17 +26,17 @@ const layout = () => {
             {
               key: "1",
               icon: <UserOutlined />,
-              label: "nav 1",
+              label: "账户管理",
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              label: "客房管理",
             },
             {
               key: "3",
               icon: <UploadOutlined />,
-              label: "nav 3",
+              label: "客户管理",
             },
           ]}
         />
@@ -46,7 +45,7 @@ const layout = () => {
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
+            background: 'rgba(0,21,41,0.1)',
           }}
         >
           <Button
@@ -60,15 +59,7 @@ const layout = () => {
             }}
           />
         </Header>
-        <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
-        >
+        <Content>
           Content
         </Content>
       </Layout>
