@@ -13,11 +13,13 @@ const { Header, Sider, Content } = Layout;
 const layout = () => {
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
-  
+
   return (
     <Layout className="layout">
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" >{collapsed?'系统':'后台管理系统'}</div>
+        <div className="demo-logo-vertical">
+          {collapsed ? "系统" : "后台管理系统"}
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -45,7 +47,7 @@ const layout = () => {
         <Header
           style={{
             padding: 0,
-            background: 'rgba(0,21,41,0.1)',
+            background: "rgba(0,21,41,0.1)",
           }}
         >
           <Button
@@ -59,9 +61,7 @@ const layout = () => {
             }}
           />
         </Header>
-        <Content>
-          Content
-        </Content>
+        <Content>Content</Content>
       </Layout>
     </Layout>
   );
