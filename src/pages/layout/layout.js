@@ -14,7 +14,35 @@ import { Button, Layout, Menu } from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
 const layout = () => {
-  // 顶部列表
+  // 左侧菜单栏
+  const items2 = [
+    {
+      key: "1",
+      icon: <UserOutlined />,
+      label: "账户管理",
+      children:[
+        {
+          key: "1-1",
+          label: "角色管理",
+        },
+        {
+          key: "1-2",
+          label: "用户管理",
+        },
+      ]
+    },
+    {
+      key: "2",
+      icon: <VideoCameraOutlined />,
+      label: "客房管理",
+    },
+    {
+      key: "3",
+      icon: <UploadOutlined />,
+      label: "客户管理",
+    },
+  ];
+  // 顶部菜单栏列表
   const items = [
     {
       label: "首页",
@@ -66,27 +94,11 @@ const layout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "账户管理",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "客房管理",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "客户管理",
-            },
-          ]}
+          items={items2}
         />
       </Sider>
       <Layout>
-        <Header 
+        <Header
           className="header"
           style={{
             padding: 0,
@@ -100,10 +112,15 @@ const layout = () => {
               fontSize: "16px",
               width: 64,
               height: 64,
-              border:'transparent'
+              border: "transparent",
             }}
           />
-          <Menu className="headermenu" selectedKeys={[current]} mode="horizontal" items={items} />;
+          <Menu
+            className="headermenu"
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={items}
+          />
         </Header>
         <Content>Content</Content>
       </Layout>
