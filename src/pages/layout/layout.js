@@ -20,7 +20,7 @@ const layout = () => {
       key: "1",
       icon: <UserOutlined />,
       label: "账户管理",
-      children:[
+      children: [
         {
           key: "1-1",
           label: "角色管理",
@@ -29,12 +29,26 @@ const layout = () => {
           key: "1-2",
           label: "用户管理",
         },
-      ]
+      ],
     },
     {
       key: "2",
       icon: <VideoCameraOutlined />,
       label: "客房管理",
+      children: [
+        {
+          key: "2-1",
+          label: "房型管理",
+        },
+        {
+          key: "2-2",
+          label: "房间管理",
+        },
+        {
+          key: "2-3",
+          label: "营业管理",
+        },
+      ],
     },
     {
       key: "3",
