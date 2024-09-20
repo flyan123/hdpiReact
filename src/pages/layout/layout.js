@@ -80,25 +80,26 @@ const layout = () => {
     },
     {
       label: "个人中心",
-      key: "SubMenu",
+      key: "mine",
       icon: <SettingOutlined />,
       children: [
         {
-          key: "1",
+          key: "my",
           label: "个人信息",
         },
         {
-          key: "2",
+          key: "pwd",
           label: "修改密码",
         },
         {
-          key: "3",
+          key: "exit",
           label: "退出登录",
         },
       ],
     },
   ];
-  const [current, setCurrent] = useState("mail");
+  // 顶部菜单栏当前选项
+  const [current, setCurrent] = useState("home");
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
   return (
