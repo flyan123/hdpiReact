@@ -134,6 +134,7 @@ const layout = () => {
             }}
           />
           <Menu
+          onClick={onClick}
             className="headermenu"
             selectedKeys={[current]}
             mode="horizontal"
