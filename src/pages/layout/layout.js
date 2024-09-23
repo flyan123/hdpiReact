@@ -100,6 +100,10 @@ const layout = () => {
   ];
   // 顶部菜单栏当前选项
   const [current, setCurrent] = useState("home");
+  // 点击菜单方法
+  const onClickMenu =(e)=>{
+    console.lohg(e)
+  }
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -134,7 +138,7 @@ const layout = () => {
             }}
           />
           <Menu
-          onClick={onClick}
+          onClick={onClickMenu}
             className="headermenu"
             selectedKeys={[current]}
             mode="horizontal"
