@@ -70,13 +70,11 @@ const layout = () => {
       label: "通知",
       key: "mail",
       icon: <AppstoreOutlined />,
-      disabled: true,
     },
     {
       label: "邮件",
       key: "noti",
       icon: <AppstoreOutlined />,
-      disabled: true,
     },
     {
       label: "个人中心",
@@ -102,7 +100,7 @@ const layout = () => {
   const [current, setCurrent] = useState("home");
   // 点击菜单方法
   const onClickMenu =(e)=>{
-    console.lohg(e)
+    console.log(e)
   }
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
