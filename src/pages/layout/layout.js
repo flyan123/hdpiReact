@@ -100,7 +100,8 @@ const layout = () => {
   const [current, setCurrent] = useState("home");
   // 点击菜单方法
   const onClickMenu =(e)=>{
-    console.log(e)
+    // console.log(e)
+    setCurrent(e.key)
   }
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
@@ -111,6 +112,7 @@ const layout = () => {
           {collapsed ? "系统" : "后台管理系统"}
         </div>
         <Menu
+          onClick={onClickMenu} 
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
