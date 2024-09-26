@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 // 图标
 import {
+  NotificationOutlined,
+  MailOutlined,
+  HomeOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
@@ -64,17 +67,17 @@ const layout = () => {
     {
       label: "首页",
       key: "home",
-      icon: <MailOutlined />,
+      icon: <HomeOutlined />,
     },
     {
       label: "通知",
       key: "mail",
-      icon: <AppstoreOutlined />,
+      icon: <NotificationOutlined />,
     },
     {
       label: "邮件",
       key: "noti",
-      icon: <AppstoreOutlined />,
+      icon: <MailOutlined />,
     },
     {
       label: "个人中心",
