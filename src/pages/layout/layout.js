@@ -57,9 +57,7 @@ const layout = () => {
       key: "3",
       icon: <UploadOutlined />,
       label: "客户管理",
-      children:[
-        
-      ]
+      children: [],
     },
   ];
   // 顶部菜单栏列表
@@ -102,10 +100,10 @@ const layout = () => {
   // 顶部菜单栏当前选项
   const [current, setCurrent] = useState("home");
   // 点击菜单方法
-  const onClickMenu =(e)=>{
+  const onClickMenu = (e) => {
     // console.log(e)
-    setCurrent(e.key)
-  }
+    setCurrent(e.key);
+  };
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -115,7 +113,7 @@ const layout = () => {
           {collapsed ? "系统" : "后台管理系统"}
         </div>
         <Menu
-          onClick={onClickMenu} 
+          onClick={onClickMenu}
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
@@ -141,7 +139,7 @@ const layout = () => {
             }}
           />
           <Menu
-          onClick={onClickMenu}
+            onClick={onClickMenu}
             className="headermenu"
             selectedKeys={[current]}
             mode="horizontal"
