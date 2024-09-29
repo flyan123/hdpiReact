@@ -9,9 +9,7 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import "./layout.scss";
@@ -80,7 +78,7 @@ const layout = () => {
     {
       label: "个人中心",
       key: "mine",
-      icon: <SettingOutlined />,
+      icon: <UserOutlined />,
       children: [
         {
           key: "my",
