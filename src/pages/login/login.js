@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 import { Button, Form, Input } from "antd";
@@ -7,6 +7,12 @@ import { $login } from "../../api/index.js";
 export default function login() {
   // 导航
   let navigate = useNavigate()
+  useEffect(()=>{
+    // 判断s'fo
+    if(sessionStorage.getItem('token')){
+      navigate('./layout')
+    }
+  })
   // 通知框状态
   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
   // 表单

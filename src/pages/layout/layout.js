@@ -6,10 +6,9 @@ import {
   HomeOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
+  SettingOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  MailOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import "./layout.scss";
@@ -53,7 +52,7 @@ const layout = () => {
     },
     {
       key: "3",
-      icon: <UploadOutlined />,
+      icon: <SettingOutlined />,
       label: "客户管理",
       children: [],
     },
