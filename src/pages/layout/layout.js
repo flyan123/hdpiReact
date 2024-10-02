@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 // 图标
 import {
   NotificationOutlined,
@@ -14,6 +15,7 @@ import { Button, Layout, Menu } from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
 const layout = () => {
+  const navigate=useNavigate()
   // 左侧菜单栏
   const items2 = [
     {
@@ -98,8 +100,16 @@ const layout = () => {
   const [current, setCurrent] = useState("home");
   // 点击菜单方法
   const onClickMenu = (e) => {
-    // console.log(e)
     setCurrent(e.key);
+    // 判断点击的菜单项
+    switch(e.key){
+      // 退出系统
+      case 'exit':
+        sessionStorage.clear()
+        localStorage.clear()
+        navigate('/')
+        break
+    }
   };
   // 侧边栏折叠状态
   const [collapsed, setCollapsed] = useState(false);

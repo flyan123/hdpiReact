@@ -8,7 +8,7 @@ export default function login() {
   // 导航
   let navigate = useNavigate()
   useEffect(()=>{
-    // 判断s'fo
+    // 判断是否已登录成功
     if(sessionStorage.getItem('token')){
       navigate('./layout')
     }
