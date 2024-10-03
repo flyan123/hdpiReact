@@ -11,7 +11,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import { Button, Layout, Menu } from "antd";
+import { Button, Layout, Menu ,Modal} from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
 const layout = () => {
@@ -115,6 +115,11 @@ const layout = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout className="layout">
+       <Modal title="系统提示" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical">
           {collapsed ? "系统" : "后台管理系统"}
