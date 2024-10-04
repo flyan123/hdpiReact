@@ -116,7 +116,7 @@ const layout = () => {
   return (
     <Layout className="layout">
        <Modal title="系统提示" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
+        <p>是否退出登录</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Modal>
