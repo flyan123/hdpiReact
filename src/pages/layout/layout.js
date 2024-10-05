@@ -15,6 +15,12 @@ import { Button, Layout, Menu ,Modal} from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
 const layout = () => {
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const navigate=useNavigate()
   // 左侧菜单栏
   const items2 = [
