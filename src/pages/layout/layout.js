@@ -14,10 +14,14 @@ import {
 import { Button, Layout, Menu ,Modal} from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
+const {confirm} =Modal
 const layout = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // 确定退出
   const handleOk = () => {
     setIsModalOpen(false);
   };
+  // 取消退出 
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -122,9 +126,7 @@ const layout = () => {
   return (
     <Layout className="layout">
        <Modal title="系统提示" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>是否退出登录</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>确定退出系统吗？</p>
       </Modal>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical">
