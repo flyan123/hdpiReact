@@ -10,11 +10,12 @@ import {
   SettingOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  ExclamationCircleOutlined
 } from "@ant-design/icons";
 import { Button, Layout, Menu ,Modal} from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
-const {confirm} =Modal
+const { confirm } = Modal
 const layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // 确定退出
@@ -115,6 +116,16 @@ const layout = () => {
     switch(e.key){
       // 退出系统
       case 'exit':
+        confirm({
+          icon: <ExclamationCircleOutlined />,
+          content: <Button onClick={destroyAll}>Click to destroy all</Button>,
+          onOk() {
+            console.log('OK');
+          },
+          onCancel() {
+            console.log('Cancel');
+          },
+        });
         sessionStorage.clear()
         localStorage.clear()
         navigate('/')
@@ -125,9 +136,6 @@ const layout = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout className="layout">
-       <Modal title="系统提示" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>确定退出系统吗？</p>
-      </Modal>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical">
           {collapsed ? "系统" : "后台管理系统"}
