@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 // 图标
 import {
   NotificationOutlined,
@@ -10,23 +10,23 @@ import {
   SettingOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  ExclamationCircleOutlined
+  ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { Button, Layout, Menu ,Modal} from "antd";
+import { Button, Layout, Menu, Modal } from "antd";
 import "./layout.scss";
 const { Header, Sider, Content } = Layout;
-const { confirm } = Modal
+const { confirm } = Modal;
 const layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // 确定退出
   const handleOk = () => {
     setIsModalOpen(false);
   };
-  // 取消退出 
+  // 取消退出
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   // 左侧菜单栏
   const items2 = [
     {
@@ -113,23 +113,23 @@ const layout = () => {
   const onClickMenu = (e) => {
     setCurrent(e.key);
     // 判断点击的菜单项
-    switch(e.key){
+    switch (e.key) {
       // 退出系统
-      case 'exit':
+      case "exit":
         confirm({
           icon: <ExclamationCircleOutlined />,
           content: <Button onClick={destroyAll}>Click to destroy all</Button>,
           onOk() {
-            console.log('OK');
+            console.log("OK");
           },
           onCancel() {
-            console.log('Cancel');
+            console.log("Cancel");
           },
         });
-        sessionStorage.clear()
-        localStorage.clear()
-        navigate('/')
-        break
+        sessionStorage.clear();
+        localStorage.clear();
+        navigate("/");
+        break;
     }
   };
   // 侧边栏折叠状态
