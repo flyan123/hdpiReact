@@ -17,15 +17,6 @@ import "./layout.scss";
 const { Header, Sider, Content } = Layout;
 const { confirm } = Modal;
 const layout = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // 确定退出
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  // 取消退出
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
   const navigate = useNavigate();
   // 左侧菜单栏
   const items2 = [
@@ -117,18 +108,15 @@ const layout = () => {
       // 退出系统
       case "exit":
         confirm({
+          title: "系统提示",
           icon: <ExclamationCircleOutlined />,
-          content: <Button onClick={destroyAll}>Click to destroy all</Button>,
+          content: "确定退出系统吗？",
           onOk() {
-            console.log("OK");
-          },
-          onCancel() {
-            console.log("Cancel");
+            sessionStorage.clear();
+            localStorage.clear();
+            navigate("/");
           },
         });
-        sessionStorage.clear();
-        localStorage.clear();
-        navigate("/");
         break;
     }
   };
