@@ -1,5 +1,5 @@
-import React, { useState ,useEffect} from "react";
-import { useNavigate,Outlet } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
 // 图标
 import {
   NotificationOutlined,
@@ -18,11 +18,11 @@ const { Header, Sider, Content } = Layout;
 const { confirm } = Modal;
 const layout = () => {
   // 判断是否登录
-//   useEffect(()=>{
-//     if(!sessionStorage.getItem('token')){
-//       navigate('/')
-//     }
-//   },[])
+  //   useEffect(()=>{
+  //     if(!sessionStorage.getItem('token')){
+  //       navigate('/')
+  //     }
+  //   },[])
   const navigate = useNavigate();
   // 左侧菜单栏
   const items2 = [
@@ -117,8 +117,8 @@ const layout = () => {
           title: "系统提示",
           icon: <ExclamationCircleOutlined />,
           content: "确定退出系统吗？",
-          okText: '确定',
-          cancelText: '取消',
+          okText: "确定",
+          cancelText: "取消",
           onOk() {
             sessionStorage.clear();
             localStorage.clear();
@@ -170,7 +170,9 @@ const layout = () => {
             items={items}
           />
         </Header>
-        <Content>Content</Content>
+        <Content className="content">
+            <Outlet></Outlet>
+        </Content>
       </Layout>
     </Layout>
   );
