@@ -32,11 +32,11 @@ const layout = () => {
       label: "账户管理",
       children: [
         {
-          key: "1-1",
+          key: "role",
           label: "角色管理",
         },
         {
-          key: "1-2",
+          key: "user",
           label: "用户管理",
         },
       ],
@@ -47,15 +47,15 @@ const layout = () => {
       label: "客房管理",
       children: [
         {
-          key: "2-1",
+          key: "type",
           label: "房型管理",
         },
         {
-          key: "2-2",
+          key: "room",
           label: "房间管理",
         },
         {
-          key: "2-3",
+          key: "total",
           label: "营业管理",
         },
       ],
@@ -111,6 +111,10 @@ const layout = () => {
     setCurrent(e.key);
     // 判断点击的菜单项
     switch (e.key) {
+      // 角色管理
+      case "role":
+        navigate('/layout/role')
+        break;
       // 退出系统
       case "exit":
         confirm({
@@ -122,6 +126,7 @@ const layout = () => {
           onOk() {
             sessionStorage.clear();
             localStorage.clear();
+            // 跳转退出页面
             navigate("/");
           },
         });
@@ -171,7 +176,7 @@ const layout = () => {
           />
         </Header>
         <Content className="content">
-            <Outlet></Outlet>
+          <Outlet></Outlet>
         </Content>
       </Layout>
     </Layout>
