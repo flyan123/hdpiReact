@@ -1,7 +1,14 @@
 import React from "react";
-import { Table ,Button} from "antd";
+import { Table ,useEffect,useState} from "antd";
+import { $list } from "../../api/RoleApi";
+import { useFetcher } from "react-router-dom";
 
 export default function Role() {
+  let [roleList,setRoleList]=useState([])
+
+  useEffect(()=>{
+    $list().then()
+  },[])
   const dataSource = [
     {
       key: "1",
