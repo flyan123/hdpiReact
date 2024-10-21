@@ -1,11 +1,13 @@
-import React from "react";
-import { Button, Table ,useEffect,useState} from "antd";
+import React,{useEffect,useState} from "react";
+import { Button, Table ,Drawer } from "antd";
 import { $list } from "../../api/RoleApi";
 import { useFetcher } from "react-router-dom";
 
 export default function Role() {
+  // 是否打开抽屉
+  const [open, setOpen] = useState(false);
+  // 角色列表数据
   // let [roleList,setRoleList]=useState([])
-
   // useEffect(()=>{
   //   $list().then(data=>{
   //     data=data.map(r=>{
@@ -47,6 +49,11 @@ export default function Role() {
     </div>
       <Table size="small" dataSource={dataSource} columns={columns} />;
       {/* <Table size="small" dataSource={roleList} columns={columns} />; */}
+      <Drawer title="Basic Drawer" onClose={onClose} open={open}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
     </>
   );
 }
