@@ -77,10 +77,10 @@ export default function Role() {
         <Form
           name="basic"
           labelCol={{
-            span: 8,
+            span: 4,
           }}
           wrapperCol={{
-            span: 16,
+            span: 18,
           }}
           style={{
             maxWidth: 600,
@@ -93,25 +93,12 @@ export default function Role() {
           autoComplete="off"
         >
           <Form.Item
-            label="角色编号"
-            name="roleId"
-            rules={[
-              {
-                required: true,
-                message: "Please input your roleId!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
             label="角色名称"
             name="roleName"
             rules={[
               {
                 required: true,
-                message: "Please input your roleName!",
+                message: "请输入角色名称!",
               },
             ]}
           >
@@ -119,12 +106,15 @@ export default function Role() {
           </Form.Item>
           <Form.Item
             wrapperCol={{
-              offset: 8,
+              offset: 4,
               span: 16,
             }}
           >
             <Button type="primary"  htmlType="submit">
               添加
+            </Button>
+            <Button style={{marginLeft:'10px'}}>
+              取消
             </Button>
           </Form.Item>
         </Form>
