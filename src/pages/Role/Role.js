@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Button, Table, Drawer, Checkbox, Form, Input } from "antd";
-import { $list } from "../../api/RoleApi";
+import { Button, Table, Drawer, Checkbox, Form, Input, message } from "antd";
+import { $list,$add } from "../../api/RoleApi";
 import { useFetcher } from "react-router-dom";
+import MyNotification from "../../components/mynotification";
 
 export default function Role() {
-  // 表单
+  // 表单提交的方法
   const onFinish = (values) => {
+    $add(values).then(({success,message})=>{
+      if(success){
+        setNotiMsy({ type: "success", description: message });
+        loadList()
+      }else {
+        setNotiMsy({ type: "error", description: message });
+      }
+    })
     console.log('Success:', values);
   };
+   // 通知框状态
+   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
+
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
@@ -18,18 +30,22 @@ export default function Role() {
     setOpen(false);
   };
   // 角色列表数据
-  // let [roleList,setRoleList]=useState([])
-  // useEffect(()=>{
-  //   $list().then(data=>{
-  //     data=data.map(r=>{
-  //       return {
-  //         ...r,
-  //         key:r.roleId
-  //       }
-  //     })
-  //     setRoleList(data)
-  //   })
-  // },[])
+  let [roleList,setRoleList]=useState([])
+  useEffect(()=>{
+    loadList()
+  },[]);
+  // 加载列表数据的方法 
+  const loadList =()=>{
+    $list().then(data=>{
+      data=data.map(r=>{
+        return {
+          ...r,
+          key:r.roleId
+        }
+      })
+      setRoleList(data)
+    })
+  };
   const dataSource = [
     {
       key: "1",

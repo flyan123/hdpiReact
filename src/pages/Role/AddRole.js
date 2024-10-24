@@ -65,7 +65,7 @@ export default function AddRole() {
           </Form.Item>
         </Form>
       </Drawer>
-      <MyNotification nothiMsg={notiMsg}/>
+      <MyNotification notiMsy={notiMsy} />
     </>
   );
 }
