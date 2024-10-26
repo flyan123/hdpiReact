@@ -15,22 +15,9 @@ export default function Role() {
         setNotiMsy({ type: "error", description: message });
       }
     })
-    console.log('Success:', values);
   };
-   // 通知框状态
-   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-  // 是否打开抽屉
-  const [open, setOpen] = useState(false);
-  // 关闭抽屉的方法
-  const onClose = () => {
-    setOpen(false);
-  };
-  // 角色列表数据
-  let [roleList,setRoleList]=useState([])
+    // 角色列表数据
+    let [roleList,setRoleList]=useState([])
   useEffect(()=>{
     loadList()
   },[]);
@@ -46,6 +33,20 @@ export default function Role() {
       setRoleList(data)
     })
   };
+   // 通知框状态
+   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+  // 是否打开抽屉
+  const [open, setOpen] = useState(false);
+  // 关闭抽屉的方法
+  const onClose = () => {
+    setOpen(false);
+  };
+
+ 
   const dataSource = [
     {
       key: "1",
@@ -93,7 +94,7 @@ export default function Role() {
         <Form
           name="basic"
           labelCol={{
-            span: 4,
+            span: 5,
           }}
           wrapperCol={{
             span: 18,
