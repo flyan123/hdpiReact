@@ -1,43 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table, Drawer, Checkbox, Form, Input, message } from "antd";
-import { $list,$add } from "../../api/RoleApi";
+import { $list, $add } from "../../api/RoleApi";
 import { useFetcher } from "react-router-dom";
 import MyNotification from "../../components/mynotification";
 
 export default function Role() {
   // 表单提交的方法
   const onFinish = (values) => {
-    $add(values).then(({success,message})=>{
-      if(success){
+    $add(values).then(({ success, message }) => {
+      if (success) {
         setNotiMsy({ type: "success", description: message });
-        loadList()
-      }else {
+        loadList();
+      } else {
         setNotiMsy({ type: "error", description: message });
       }
-    })
+    });
   };
-    // 角色列表数据
-    let [roleList,setRoleList]=useState([])
-  useEffect(()=>{
-    loadList()
-  },[]);
-  // 加载列表数据的方法 
-  const loadList =()=>{
-    $list().then(data=>{
-      data=data.map(r=>{
+  // 角色列表数据
+  let [roleList, setRoleList] = useState([]);
+  useEffect(() => {
+    loadList();
+  }, []);
+  // 加载列表数据的方法
+  const loadList = () => {
+    $list().then((data) => {
+      data = data.map((r) => {
         return {
           ...r,
-          key:r.roleId
-        }
-      })
-      setRoleList(data)
-    })
+          key: r.roleId,
+        };
+      });
+      setRoleList(data);
+    });
   };
-   // 通知框状态
-   let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
+  // 通知框状态
+  let [notiMsy, setNotiMsy] = useState({ type: "", description: "" });
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
   // 是否打开抽屉
   const [open, setOpen] = useState(false);
@@ -46,7 +46,6 @@ export default function Role() {
     setOpen(false);
   };
 
- 
   const dataSource = [
     {
       key: "1",
@@ -127,12 +126,10 @@ export default function Role() {
               span: 16,
             }}
           >
-            <Button type="primary"  htmlType="submit">
+            <Button type="primary" htmlType="submit">
               添加
             </Button>
-            <Button style={{marginLeft:'10px'}}>
-              取消
-            </Button>
+            <Button style={{ marginLeft: "10px" }}>取消</Button>
           </Form.Item>
         </Form>
       </Drawer>
